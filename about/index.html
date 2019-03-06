@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="一. 生平简历林纳斯·本纳第克特·托瓦兹（Linus Benedict Torvalds, 1969年~ ），著名的电脑程序员。Linux内核的发明人及该计划的合作者。托瓦兹利用个人时间及器材创造出了这套当今全球最流行的操作系统（作业系统）内核之一。现受聘于开放源代码开发实验室（OSDL：Open Source Development Labs, Inc），全力开发Linux内核。 二. 人生经历">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-05T02:29:08.580Z">
+<meta property="og:updated_time" content="2019-03-06T03:45:49.734Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="linus之父">
 <meta name="twitter:description" content="一. 生平简历林纳斯·本纳第克特·托瓦兹（Linus Benedict Torvalds, 1969年~ ），著名的电脑程序员。Linux内核的发明人及该计划的合作者。托瓦兹利用个人时间及器材创造出了这套当今全球最流行的操作系统（作业系统）内核之一。现受聘于开放源代码开发实验室（OSDL：Open Source Development Labs, Inc），全力开发Linux内核。 二. 人生经历">
@@ -322,7 +322,13 @@
           <h4 id="一-生平简历"><a href="#一-生平简历" class="headerlink" title="一. 生平简历"></a>一. 生平简历</h4><p>林纳斯·本纳第克特·托瓦兹（Linus Benedict Torvalds, 1969年~ ），著名的电脑程序员。Linux内核的发明人及该计划的合作者。托瓦兹利用个人时间及器材创造出了这套当今全球最流行的操作系统（作业系统）内核之一。现受聘于开放源代码开发实验室（OSDL：Open Source Development Labs, Inc），全力开发Linux内核。</p>
 <h4 id="二-人生经历"><a href="#二-人生经历" class="headerlink" title="二. 人生经历"></a>二. 人生经历</h4><p>托瓦兹1969年12月28日出生于芬兰赫尔辛基市。父亲尼尔斯·托瓦兹（Nils Torvalds）是一名活跃的共产主义者及电台记者，曾当选芬兰共产党中央委员会委员。托瓦兹家族属于在芬兰占6%的少数民族芬兰瑞典人。他毕业于赫尔辛基大学计算机系，1997年至2003年在美国加州硅谷任职于全美达公司（Transmeta Corporation），现受聘于开放源代码开发实验（OSDL：Open Source Development Labs, Inc），全力开发Linux内核。与妻子托芙（Tove，芬兰前女子空手道冠军）育有三个女孩。</p>
 <p>&emsp;&emsp;本站是使用<font size="4"><a href="https://hexo.io" target="_blank" rel="noopener">Hexo</a></font>框架搭建，托管在<font size="4"><a href="https://github.com/gradyu" target="_blank" rel="noopener">Github</a></font>之上，博客主题使用的是<font size="4"><a href="http://theme-next.iissnan.com" target="_blank" rel="noopener">NexT</a></font>。</p>
-
+<!-- HTML方式: 直接在 Markdown 文件中编写 HTML 来调用 -->
+<!-- 其中 class="blockquote-center" 是必须的 -->
+<!--  <blockquote class="blockquote-center">blah blah blah</blockquote> -->
+  <!-- 标签 方式，要求版本在0.4.5或以上 -->
+<!-- <blockquote class="blockquote-center"><p>blah blah blah</p>
+</blockquote> –&gt;
+-->
         
       </div>
       
@@ -342,9 +348,39 @@
           
 
   
-    <div class="comments" id="comments">
-      <div id="lv-container" data-id="city" data-uid="MTAyMC80MjkyMy8xOTQ2OQ=="></div>
-    </div>
+  <div onclick="showGitment()" id="gitment_title" class="gitment_title">显示 Gitment 评论</div>
+      <div id="container" style="display:none"></div>
+      <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+      <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+      <script>
+      const myTheme = {
+        render(state, instance) {
+          const container = document.createElement('div');
+          container.lang = "en-US";
+          container.className = 'gitment-container gitment-root-container';
+          container.appendChild(instance.renderHeader(state, instance));
+          container.appendChild(instance.renderEditor(state, instance));
+          container.appendChild(instance.renderComments(state, instance));
+          container.appendChild(instance.renderFooter(state, instance));
+          return container;
+        }
+      }
+      function showGitment() {
+        $("#gitment_title").attr("style", "display:none");
+        $("#container").attr("style", "").addClass("gitment_container");
+        var gitment = new Gitment({
+          id: window.location.pathname,
+          theme: myTheme,
+          owner: '',
+          repo: '',
+          oauth: {
+            client_id: 'd794d7aab0f8184492c9',
+            client_secret: '19bb62ebcdcfbea81e7ae27052942b689b906c97'
+          }
+        });
+        gitment.render('container');
+      }
+      </script>
 
   
 
@@ -418,7 +454,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -658,22 +694,48 @@
 
 
   
-    <script type="text/javascript">
-      (function(d, s) {
-        var j, e = d.getElementsByTagName(s)[0];
-        if (typeof LivereTower === 'function') { return; }
-        j = d.createElement(s);
-        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
-        j.async = true;
-        e.parentNode.insertBefore(j, e);
-      })(document, 'script');
-    </script>
-  
 
 
 
 
 
+
+
+<!-- LOCAL: You can save these files to your site and update links -->
+    
+        
+        <link rel="stylesheet" href="https://aimingoo.github.io/gitmint/style/default.css">
+        <script src="https://aimingoo.github.io/gitmint/dist/gitmint.browser.js"></script>
+    
+<!-- END LOCAL -->
+
+    
+
+    
+      <script type="text/javascript">
+      function renderGitment(){
+        var gitment = new Gitmint({
+            id: window.location.pathname, 
+            owner: 'BisonReto',
+            repo: 'BisonReto.github.io',
+            
+            lang: "" || navigator.language || navigator.systemLanguage || navigator.userLanguage,
+            
+            oauth: {
+            
+            
+                client_secret: '19bb62ebcdcfbea81e7ae27052942b689b906c97',
+            
+                client_id: 'd794d7aab0f8184492c9'
+            }});
+        gitment.render('gitment-container');
+      }
+
+      
+      renderGitment();
+      
+      </script>
+    
 
 
 

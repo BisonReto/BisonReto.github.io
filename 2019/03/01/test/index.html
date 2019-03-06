@@ -81,13 +81,13 @@
 
 <meta name="keywords" content="Testing,Another Tag,傻逼,大佬">
 <meta property="og:type" content="article">
-<meta property="og:title" content="测试文章">
+<meta property="og:title" content="薄荷的博客">
 <meta property="og:url" content="http://yoursite.com/2019/03/01/test/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-01T07:42:52.749Z">
+<meta property="og:updated_time" content="2019-03-06T01:47:40.571Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="测试文章">
+<meta name="twitter:title" content="薄荷的博客">
 
 
 
@@ -123,7 +123,7 @@
 
 
 
-  <title>测试文章 | Hexo</title>
+  <title>薄荷的博客 | Hexo</title>
   
 
 
@@ -329,7 +329,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">测试文章</h1>
+          <h1 class="post-title" itemprop="name headline">薄荷的博客</h1>
         
 
         <div class="post-meta">
@@ -377,6 +377,16 @@
 
           
             
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/03/01/test/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count gitment-comments-count" data-xid="/2019/03/01/test/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -401,7 +411,8 @@
       
 
       
-        
+        <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=564226919&auto=1&height=66"></iframe>
+
       
     </div>
     
@@ -481,9 +492,39 @@
           
 
   
-    <div class="comments" id="comments">
-      <div id="lv-container" data-id="city" data-uid="MTAyMC80MjkyMy8xOTQ2OQ=="></div>
-    </div>
+  <div onclick="showGitment()" id="gitment_title" class="gitment_title">显示 Gitment 评论</div>
+      <div id="container" style="display:none"></div>
+      <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+      <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+      <script>
+      const myTheme = {
+        render(state, instance) {
+          const container = document.createElement('div');
+          container.lang = "en-US";
+          container.className = 'gitment-container gitment-root-container';
+          container.appendChild(instance.renderHeader(state, instance));
+          container.appendChild(instance.renderEditor(state, instance));
+          container.appendChild(instance.renderComments(state, instance));
+          container.appendChild(instance.renderFooter(state, instance));
+          return container;
+        }
+      }
+      function showGitment() {
+        $("#gitment_title").attr("style", "display:none");
+        $("#container").attr("style", "").addClass("gitment_container");
+        var gitment = new Gitment({
+          id: window.location.pathname,
+          theme: myTheme,
+          owner: '',
+          repo: '',
+          oauth: {
+            client_id: 'd794d7aab0f8184492c9',
+            client_secret: '19bb62ebcdcfbea81e7ae27052942b689b906c97'
+          }
+        });
+        gitment.render('container');
+      }
+      </script>
 
   
 
@@ -548,7 +589,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -772,22 +813,48 @@
 
 
   
-    <script type="text/javascript">
-      (function(d, s) {
-        var j, e = d.getElementsByTagName(s)[0];
-        if (typeof LivereTower === 'function') { return; }
-        j = d.createElement(s);
-        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
-        j.async = true;
-        e.parentNode.insertBefore(j, e);
-      })(document, 'script');
-    </script>
-  
 
 
 
 
 
+
+
+<!-- LOCAL: You can save these files to your site and update links -->
+    
+        
+        <link rel="stylesheet" href="https://aimingoo.github.io/gitmint/style/default.css">
+        <script src="https://aimingoo.github.io/gitmint/dist/gitmint.browser.js"></script>
+    
+<!-- END LOCAL -->
+
+    
+
+    
+      <script type="text/javascript">
+      function renderGitment(){
+        var gitment = new Gitmint({
+            id: window.location.pathname, 
+            owner: 'BisonReto',
+            repo: 'BisonReto.github.io',
+            
+            lang: "" || navigator.language || navigator.systemLanguage || navigator.userLanguage,
+            
+            oauth: {
+            
+            
+                client_secret: '19bb62ebcdcfbea81e7ae27052942b689b906c97',
+            
+                client_id: 'd794d7aab0f8184492c9'
+            }});
+        gitment.render('gitment-container');
+      }
+
+      
+      renderGitment();
+      
+      </script>
+    
 
 
 
